@@ -1,0 +1,37 @@
+{
+  "name": "@midim/shared",
+  "version": "0.1.0",
+  "description": "Shared MIDI parsing, hashing, and type utilities for MIDIM OSS tools",
+  "license": "MIT",
+  "author": "MIDIM OSS Contributors",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist/", "README.md", "LICENSE"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "lint": "eslint src --ext .ts --ignore-pattern '**/__tests__/**'",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@noble/curves": "^2.2.0",
+    "@noble/hashes": "^2.2.0",
+    "@tonejs/midi": "^2.0.28",
+    "json-canonicalize": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.4.5",
+    "vitest": "^3.2.0"
+  }
+}
