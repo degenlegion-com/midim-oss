@@ -1,0 +1,39 @@
+{
+  "name": "@midim/poim",
+  "version": "0.1.0",
+  "description": "Local self-signed POIM certificates for MIDI files — Ed25519 + BLAKE3, no registry",
+  "license": "MIT",
+  "author": "MIDIM OSS Contributors",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "midim-poim": "./dist/cli.js"
+  },
+  "files": ["dist/", "README.md", "LICENSE"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "lint": "eslint src --ext .ts --ignore-pattern '**/__tests__/**'",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@midim/shared": "workspace:*",
+    "@noble/curves": "^2.2.0",
+    "@noble/hashes": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.4.5",
+    "vitest": "^3.2.0"
+  }
+}
