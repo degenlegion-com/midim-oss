@@ -141,9 +141,26 @@ Releases are automated via [Changesets](https://github.com/changesets/changesets
 
 ### One-time setup
 
-1. **Create the `@midim` npm scope** — log in to npmjs.com and ensure the `@midim` organisation exists.
-2. **Generate an npm automation token** — go to npmjs.com → Access Tokens → Generate New Token (Automation).
-3. **Add `NPM_TOKEN` to GitHub secrets** — in your repo go to Settings → Secrets → Actions → New repository secret named `NPM_TOKEN`.
+The repo lives at **https://github.com/degenlegion-com/midim-oss**. Steps 2–3 below are already done; only step 1 and 4 need action.
+
+1. **Claim the `@midim` npm scope** — log in to npmjs.com → Org → Create org → `midim`. Packages are configured as `public` and will publish to `@midim/…`.
+2. ~~**Generate an npm automation token**~~ — ✅ done. The `NPM_TOKEN` secret is set in the GitHub repo.
+3. ~~**Add `NPM_TOKEN` to GitHub secrets**~~ — ✅ done. Verified via the GitHub Actions API.
+4. **Push the GitHub Actions workflows** — the workflows are in `oss/.github/workflows/`. Push them once with `workflow` scope (GitHub requires it for workflow files):
+
+```bash
+cd oss
+git init
+git remote add origin https://github.com/degenlegion-com/midim-oss.git
+git fetch origin
+git checkout -b main --track origin/main  # or: git reset --hard origin/main
+# The workflow files are in .github/workflows/ — push them:
+git add .github/workflows/
+git commit -m "chore: add GitHub Actions CI + release workflows"
+git push origin main
+```
+
+After that push, any subsequent push to `main` will trigger the automated release flow.
 
 ### Automated release flow
 
