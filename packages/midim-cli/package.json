@@ -1,0 +1,40 @@
+{
+  "name": "@midim/cli",
+  "version": "0.1.0",
+  "description": "Unified MIDIM OSS CLI — fingerprint, diff, and POIM tools for MIDI developers",
+  "license": "MIT",
+  "author": "MIDIM OSS Contributors",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "midim": "./dist/index.js"
+  },
+  "files": ["dist/", "README.md", "LICENSE"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "echo 'No unit tests for CLI wrapper (covered by integration)'",
+    "lint": "eslint src --ext .ts",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@midim/diff": "workspace:*",
+    "@midim/fingerprint": "workspace:*",
+    "@midim/poim": "workspace:*",
+    "@midim/shared": "workspace:*",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.4.5"
+  }
+}
