@@ -1,6 +1,6 @@
 # MIDIM OSS Tools
 
-[![CI](https://github.com/midim-oss/midim-oss/actions/workflows/ci.yml/badge.svg)](https://github.com/midim-oss/midim-oss/actions/workflows/ci.yml)
+[![CI](https://github.com/degenlegion-com/midim-oss/actions/workflows/ci.yml/badge.svg)](https://github.com/degenlegion-com/midim-oss/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Local MIDI developer tools: fingerprinting, diff/similarity, and self-signed POIM certificates. No network calls. No registry. Fully open-source.
